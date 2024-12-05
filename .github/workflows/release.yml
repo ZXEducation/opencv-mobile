@@ -1,9 +1,6 @@
 name: release
 # on: pull_request
-on:
-    push:
-        tags:
-            - "*"
+on: push
 
 env:
     DEVELOPER_DIR: /Applications/Xcode_15.2.app/Contents/Developer
@@ -1675,14 +1672,6 @@ jobs:
                   echo "MACOS_PACKAGE_NAME=opencv-mobile-${{ matrix.opencv-version }}-macos" >> $GITHUB_ENV
                   echo "IOS_PACKAGE_NAME=opencv-mobile-${{ matrix.opencv-version }}-ios" >> $GITHUB_ENV
                   echo "IOS_SIMULATOR_PACKAGE_NAME=opencv-mobile-${{ matrix.opencv-version }}-ios-simulator" >> $GITHUB_ENV
-                  echo "MAC_CATALYST_PACKAGE_NAME=opencv-mobile-${{ matrix.opencv-version }}-mac-catalyst" >> $GITHUB_ENV
-                  echo "WATCHOS_PACKAGE_NAME=opencv-mobile-${{ matrix.opencv-version }}-watchos" >> $GITHUB_ENV
-                  echo "WATCHOS_SIMULATOR_PACKAGE_NAME=opencv-mobile-${{ matrix.opencv-version }}-watchos-simulator" >> $GITHUB_ENV
-                  echo "TVOS_PACKAGE_NAME=opencv-mobile-${{ matrix.opencv-version }}-tvos" >> $GITHUB_ENV
-                  echo "TVOS_SIMULATOR_PACKAGE_NAME=opencv-mobile-${{ matrix.opencv-version }}-tvos-simulator" >> $GITHUB_ENV
-                  echo "VISIONOS_PACKAGE_NAME=opencv-mobile-${{ matrix.opencv-version }}-visionos" >> $GITHUB_ENV
-                  echo "VISIONOS_SIMULATOR_PACKAGE_NAME=opencv-mobile-${{ matrix.opencv-version }}-visionos-simulator" >> $GITHUB_ENV
-                  echo "PACKAGE_NAME=opencv-mobile-${{ matrix.opencv-version }}-apple" >> $GITHUB_ENV
             - name: download-macos-package
               uses: actions/download-artifact@v4
               with:
@@ -1919,25 +1908,24 @@ jobs:
     release:
         permissions:
             contents: write # for softprops/action-gh-release to create a release
-        needs:
-            [
+        needs: [
                 setup,
                 android,
                 harmonyos,
                 ios,
                 ios-simulator,
-                armlinux,
+                # armlinux,
                 macos,
-                mac-catalyst,
-                watchos,
-                watchos-simulator,
-                tvos,
-                tvos-simulator,
-                visionos,
-                visionos-simulator,
+                # mac-catalyst,
+                # watchos,
+                # watchos-simulator,
+                # tvos,
+                # tvos-simulator,
+                # visionos,
+                # visionos-simulator,
                 windows,
-                ubuntu,
-                webassembly,
+                # ubuntu,
+                # webassembly,
                 apple,
                 devboard
             ]
