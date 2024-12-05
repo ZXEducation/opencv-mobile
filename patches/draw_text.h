@@ -554,8 +554,7 @@ static void draw_text_c1(unsigned char *pixels, int w, int h, int stride,
     const unsigned char *font_bitmap = ff.d->get_glyph_bitmap(ch);
     if (font_bitmap) {
       // draw resized character
-      resize_bilinear_font(font_bitmap, resized_font_bitmap, fontpixelsize,
-                           ch < 128 ? 0 : 1);
+      resize_bilinear_font(font_bitmap, resized_font_bitmap, fontpixelsize, 0);
 
       const int ystart = std::max(cursor_y, 0);
       const int yend = std::min(cursor_y + fontpixelsize * 2, h);
@@ -642,8 +641,7 @@ static void draw_text_c3(unsigned char *pixels, int w, int h, int stride,
     const unsigned char *font_bitmap = ff.d->get_glyph_bitmap(ch);
     if (font_bitmap) {
       // draw resized character
-      resize_bilinear_font(font_bitmap, resized_font_bitmap, fontpixelsize,
-                           ch < 128 ? 0 : 1);
+      resize_bilinear_font(font_bitmap, resized_font_bitmap, fontpixelsize, 0);
 
       const int ystart = std::max(cursor_y, 0);
       const int yend = std::min(cursor_y + fontpixelsize * 2, h);
@@ -734,8 +732,7 @@ static void draw_text_c4(unsigned char *pixels, int w, int h, int stride,
     const unsigned char *font_bitmap = ff.d->get_glyph_bitmap(ch);
     if (font_bitmap) {
       // draw resized character
-      resize_bilinear_font(font_bitmap, resized_font_bitmap, fontpixelsize,
-                           ch < 128 ? 0 : 1);
+      resize_bilinear_font(font_bitmap, resized_font_bitmap, fontpixelsize, 0);
 
       const int ystart = std::max(cursor_y, 0);
       const int yend = std::min(cursor_y + fontpixelsize * 2, h);
