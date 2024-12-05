@@ -560,14 +560,12 @@ static void draw_text_c1(unsigned char *pixels, int w, int h, int stride,
       const int ystart = std::max(cursor_y, 0);
       const int yend = std::min(cursor_y + fontpixelsize * 2, h);
       const int xstart = std::max(cursor_x, 0);
-      const int xend =
-          std::min(cursor_x + fontpixelsize * (ch < 128 ? 1 : 2), w);
+      const int xend = std::min(cursor_x + fontpixelsize * 2, w);
 
       for (int j = ystart; j < yend; j++) {
-        const unsigned char *palpha =
-            resized_font_bitmap +
-            (j - cursor_y) * fontpixelsize * (ch < 128 ? 1 : 2) + xstart -
-            cursor_x;
+        const unsigned char *palpha = resized_font_bitmap +
+                                      (j - cursor_y) * fontpixelsize * 2 +
+                                      xstart - cursor_x;
         unsigned char *p = pixels + stride * j + xstart;
 
         for (int k = xstart; k < xend; k++) {
@@ -650,14 +648,12 @@ static void draw_text_c3(unsigned char *pixels, int w, int h, int stride,
       const int ystart = std::max(cursor_y, 0);
       const int yend = std::min(cursor_y + fontpixelsize * 2, h);
       const int xstart = std::max(cursor_x, 0);
-      const int xend =
-          std::min(cursor_x + fontpixelsize * (ch < 128 ? 1 : 2), w);
+      const int xend = std::min(cursor_x + fontpixelsize * 2, w);
 
       for (int j = ystart; j < yend; j++) {
-        const unsigned char *palpha =
-            resized_font_bitmap +
-            (j - cursor_y) * fontpixelsize * (ch < 128 ? 1 : 2) + xstart -
-            cursor_x;
+        const unsigned char *palpha = resized_font_bitmap +
+                                      (j - cursor_y) * fontpixelsize * 2 +
+                                      xstart - cursor_x;
         unsigned char *p = pixels + stride * j + xstart * 3;
 
         for (int k = xstart; k < xend; k++) {
@@ -744,14 +740,12 @@ static void draw_text_c4(unsigned char *pixels, int w, int h, int stride,
       const int ystart = std::max(cursor_y, 0);
       const int yend = std::min(cursor_y + fontpixelsize * 2, h);
       const int xstart = std::max(cursor_x, 0);
-      const int xend =
-          std::min(cursor_x + fontpixelsize * (ch < 128 ? 1 : 2), w);
+      const int xend = std::min(cursor_x + fontpixelsize * 2, w);
 
       for (int j = ystart; j < yend; j++) {
-        const unsigned char *palpha =
-            resized_font_bitmap +
-            (j - cursor_y) * fontpixelsize * (ch < 128 ? 1 : 2) + xstart -
-            cursor_x;
+        const unsigned char *palpha = resized_font_bitmap +
+                                      (j - cursor_y) * fontpixelsize * 2 +
+                                      xstart - cursor_x;
         unsigned char *p = pixels + stride * j + xstart * 4;
 
         for (int k = xstart; k < xend; k++) {
